@@ -1,0 +1,31 @@
+{
+  "manifest_version": 3,
+  "name": "X Whitelist Only",
+  "version": "3.0.0",
+  "description": "許可したアカウントの投稿だけを閲覧する",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "https://x.com/*"
+  ],
+  "action": {
+    "default_title": "X Whitelist Settings",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://x.com/*",
+        "https://www.x.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "filter.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+/* ==================================
+   X Whitelist Only v3.0
+================================== */
+
+/* 初期読み込み中 */
+body.xwl-loading article {
+  visibility: hidden !important;
+}
+
+/* 投稿・UIの非表示 */
+.xwl-hidden,
+.xwl-hidden-ui,
+.xwl-hidden-quote,
+.xwl-nav-hidden,
+.xwl-recommended-tab-hidden {
+  display: none !important;
+}
+
+/* 未許可アカウントへのリンク */
+a.xwl-blocked-link {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
+/* ナビゲーション以外の不要なUI */
+[data-testid="sidebarColumn"],
+[data-testid="DMDrawer"],
+[data-testid="WhoToFollow"],
+[data-testid="ConnectTab"] {
+  display: none !important;
+}
+
+/* 右側サイドバー */
+[data-testid="sidebarColumn"],
+[data-testid="DMDrawer"],
+[data-testid="WhoToFollow"],
+[data-testid="ConnectTab"] {
+  display: none !important;
+}
+
+/* 検索 */
+[data-testid="SearchBox_Search_Input"],
+[data-testid="SearchBox_Search_Container"] {
+  display: none !important;
+}
+
+/* 投稿作成 */
+[data-testid="tweetTextarea_0"],
+[data-testid="toolBar"],
+[data-testid="SideNav_NewTweet_Button"] {
+  display: none !important;
+}
+
+/* フォロー関連ボタン */
+button[data-testid="follow"],
+button[data-testid="unfollow"] {
+  display: none !important;
+}
+
+/* 投稿のリアクション */
+article [role="group"] {
+  display: none !important;
+}
+
+/* 投稿メニュー */
+article [data-testid="caret"] {
+  display: none !important;
+}
+
+/* おすすめユーザー */
+body:not(.xwl-importing) [data-testid="UserCell"] {
+  display: none !important;
+}
+
+body.xwl-importing [data-testid="UserCell"] {
+  display: flex !important;
+  visibility: visible !important;
+}
+
+.xwl-import-status {
+  position: fixed;
+  z-index: 999999;
+  top: 16px;
+  right: 16px;
+  width: min(360px, calc(100vw - 32px));
+  padding: 16px;
+  border: 1px solid #d8d8d8;
+  border-radius: 12px;
+  background: #fff;
+  color: #222;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .2);
+  font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.xwl-import-status button {
+  margin-top: 10px;
+  padding: 7px 12px;
+  border: 0;
+  border-radius: 6px;
+  background: #1d9bf0;
+  color: white;
+  cursor: pointer;
+  font: inherit;
+}
+
+.xwl-import-status[data-error="true"] {
+  border-color: #d33;
+}

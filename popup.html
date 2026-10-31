@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>X Whitelist Only</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+
+<body>
+  <main class="container">
+
+    <header>
+      <h1>X Whitelist</h1>
+      <span class="version">v3.0</span>
+    </header>
+
+    <p class="description">
+      許可したアカウントの投稿だけを表示します。
+    </p>
+
+    <section>
+      <h2>アカウントを追加</h2>
+
+      <div class="input-row">
+        <input
+          id="username"
+          type="text"
+          placeholder="@username"
+          maxlength="16"
+        >
+        <button id="add">追加</button>
+      </div>
+
+      <p class="help">
+        追加したアカウントは許可リストに登録されます。
+      </p>
+
+      <div class="bulk-import">
+        <button id="import-following" class="secondary">
+          フォロー中を一括登録
+        </button>
+        <p class="help">
+          Xのフォロー中一覧を開き、読み込めたアカウントを許可リストに追加します。
+        </p>
+      </div>
+
+      <div id="follow-confirm" class="confirm hidden">
+        <p id="confirm-message"></p>
+        <button id="open-profile">
+          プロフィールを開いてフォローする
+        </button>
+        <button id="cancel-follow" class="secondary">
+          今はフォローしない
+        </button>
+      </div>
+    </section>
+
+    <hr>
+
+    <section>
+      <div class="list-header">
+        <h2>許可アカウント</h2>
+        <span id="count">0件</span>
+      </div>
+
+      <ul id="account-list"></ul>
+    </section>
+
+    <div id="status" role="status"></div>
+
+    <hr>
+
+    <section class="settings">
+      <h2>連携設定</h2>
+
+      <label>
+        <input type="checkbox" id="sync-follow" checked disabled>
+        フォロー成功時に自動追加
+      </label>
+
+      <label>
+        <input type="checkbox" id="sync-unfollow" checked disabled>
+        フォロー解除時に自動削除
+      </label>
+
+      <label>
+        <input type="checkbox" checked disabled>
+        追加時にフォロー確認を表示
+      </label>
+    </section>
+
+    <p class="notice">
+      フォロー操作はXの画面で本人が実行します。
+      拡張機能が勝手にフォローすることはありません。
+    </p>
+
+  </main>
+
+  <script src="popup.js"></script>
+</body>
+</html>
